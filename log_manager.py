@@ -15,6 +15,10 @@ class LogRepository:
     def add_suspicious_ip(self, ip: str):
         self.suspicious_ips.append(ip)
 
+    def clear_logs(self):
+        with open(self.log_file, 'w') as f:
+            json.dump([], f, indent=4)
+
     def get_suspicious_ips(self) -> list[str]:
         return self.suspicious_ips
     
@@ -36,7 +40,7 @@ class LogRepository:
         if type(timestamp) == datetime:
             timestamp = timestamp.strftime("%Y-%m-%dT%H:%M:%S")
 
-        log = asdict(LogEntry(log_id, ip_address, event_type, username, timestamp))
+        log = asdict(LogEntry(log_id, ip_address, username, event_type, timestamp))
         log_entries = self.load_logs()
         log_entries.append(log)
 
