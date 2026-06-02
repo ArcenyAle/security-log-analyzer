@@ -3,8 +3,9 @@ from datetime import datetime
 from dataclasses import asdict
 
 from data_structures import LogEntry
-from helpers import datetime_to_str
 
+def datetime_to_str(time: datetime):
+    return time.strftime("%Y-%m-%dT%H:%M:%S")
 
 class LogRepository:
     def __init__(self, log_file):
