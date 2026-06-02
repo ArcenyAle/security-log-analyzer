@@ -1,5 +1,5 @@
-11
-10
-1
-1
-alice
+Total logins: 11
+Failed logins: 10
+Successful logins: 1
+Suspicious logins: 1
+Most attacked user: alice

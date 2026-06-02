@@ -14,7 +14,11 @@ def create_report(logger: LogRepository, report_name: str):
     most_attacked_user = get_logs_by_ip(logger, Counter(suspicious_ips).most_common(1)[0][0])[0]["username"]
 
     with open(report_name, 'w') as f:
-        f.write(f'{total_logs}\n{failed_logins}\n{successful_logins}\n{suspicious_logins}\n{most_attacked_user}')
+        f.write(f'Total logins: {total_logs}\n'
+                f'Failed logins: {failed_logins}\n'
+                f'Successful logins: {successful_logins}\n'
+                f'Suspicious logins: {suspicious_logins}\n'
+                f'Most attacked user: {most_attacked_user}')
 
 if __name__ == "__main__":
     logger = LogRepository("logs.json")
