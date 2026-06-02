@@ -33,10 +33,11 @@ def failed_login_counts(logger: LogRepository):
     return log_counts["failed_login"]
 
 
-def successful_login_counts(loggerr: LogRepository):
+def successful_login_counts(logger: LogRepository):
     log_counts = get_log_counts(logger, "event_type")
 
-    return log_counts["successful_login"]
+    if log_counts:
+        return log_counts["successful_login"]
 
 
 def unique_ip_count(logger: LogRepository):

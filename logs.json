@@ -69,5 +69,12 @@
         "username": "bob",
         "event_type": "failed_login",
         "timestamp": "2026-05-31T09:18:20"
+    },
+    {
+        "id": 10,
+        "ip_address": "10.0.0.5",
+        "username": "bob",
+        "event_type": "successful_login",
+        "timestamp": "2026-05-31T09:18:20"
     }
 ]

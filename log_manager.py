@@ -9,6 +9,13 @@ from helpers import datetime_to_str
 class LogRepository:
     def __init__(self, log_file):
         self.log_file = log_file
+        self.suspicious_ips = []
+
+    def add_suspicious_ip(self, ip: str):
+        self.suspicious_ips.append(ip)
+
+    def get_suspicious_ips(self) -> list[str]:
+        return self.suspicious_ips
     
     def load_logs(self) -> list[LogEntry]:
         with open(self.log_file, 'r') as f:
